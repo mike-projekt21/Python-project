@@ -130,27 +130,3 @@ def find_cours(mes):
 
 # запускаем бота
 bot.polling(none_stop=True)
-
-@bot.callback_query_handler(func=lambda call: True)
-def callback_inline(call):
-    """callback function"""
-    if call.data == 'more':
-        selecting.get_more_informations(bot, call, FILIAL, COURS, CLS)
-    elif call.data == 'schedule':
-        selecting.get_schedule(bot, call, FILIAL, COURS, CLS)
-
-
-def find_cours(mes):
-    """check courses"""
-    global COURS
-    mes = mes.split(" (")
-    for i in COURSES:
-        if mes[0] == i:
-            COURS = i
-            return True
-    return False
-
-
-# запускаем бота
-bot.polling(none_stop=True)
-bot.polling(none_stop=True)
